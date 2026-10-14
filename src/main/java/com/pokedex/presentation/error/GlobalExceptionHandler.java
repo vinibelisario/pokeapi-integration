@@ -22,14 +22,6 @@ import java.time.Instant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Converts every error into the same JSON structure (RFC 9457 ProblemDetail):
- * <pre>
- * { "type", "title", "status", "detail", "instance", "timestamp", "errors"? }
- * </pre>
- * Spring's own errors (malformed JSON, wrong param type, 405, ...) are handled by
- * {@link ResponseEntityExceptionHandler}.
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -72,7 +64,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 "An unexpected error occurred");
     }
 
-    /** Invalid @Valid @RequestBody: returns 400 with a map of field -> message. */
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
