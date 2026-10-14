@@ -7,10 +7,6 @@ import com.tngtech.archunit.lang.ArchRule;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-/**
- * Guards the Clean Architecture dependency rule: dependencies point inwards only.
- * presentation / infrastructure -> application -> domain
- */
 @AnalyzeClasses(packages = "com.pokedex", importOptions = ImportOption.DoNotIncludeTests.class)
 class ArchitectureTest {
 

@@ -20,10 +20,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Unit test (no Spring context): a fake controller throws each exception
- * and we check the HTTP status and the JSON body produced by the handler.
- */
 class GlobalExceptionHandlerTest {
 
     private MockMvc mockMvc;
