@@ -32,7 +32,7 @@ class GlobalExceptionHandlerTest {
     }
 
     @Test
-    void notFound_returns404() throws Exception {
+    void notFoundReturns404() throws Exception {
         mockMvc.perform(get("/test/not-found"))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.status").value(404))
@@ -42,28 +42,28 @@ class GlobalExceptionHandlerTest {
     }
 
     @Test
-    void invalidData_returns400() throws Exception {
+    void invalidDataReturns400() throws Exception {
         mockMvc.perform(get("/test/invalid"))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.title").value("Invalid data"));
     }
 
     @Test
-    void externalServiceFailure_returns502() throws Exception {
+    void externalServiceFailureReturns502() throws Exception {
         mockMvc.perform(get("/test/external"))
                 .andExpect(status().isBadGateway())
                 .andExpect(jsonPath("$.title").value("External service error"));
     }
 
     @Test
-    void unexpectedError_returns500_withoutLeakingDetails() throws Exception {
+    void unexpectedErrorReturns500WithoutLeakingDetails() throws Exception {
         mockMvc.perform(get("/test/boom"))
                 .andExpect(status().isInternalServerError())
                 .andExpect(jsonPath("$.detail").value("An unexpected error occurred"));
     }
 
     @Test
-    void invalidBody_returns400_withFieldErrors() throws Exception {
+    void invalidBodyReturns400WithFieldErrors() throws Exception {
         mockMvc.perform(post("/test/body")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\": \"\"}"))
@@ -73,7 +73,7 @@ class GlobalExceptionHandlerTest {
     }
 
     @Test
-    void malformedJson_returns400() throws Exception {
+    void malformedJsonReturns400() throws Exception {
         mockMvc.perform(post("/test/body")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{ not json"))

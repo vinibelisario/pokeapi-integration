@@ -11,7 +11,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 class ArchitectureTest {
 
     @ArchTest
-    static final ArchRule domain_must_be_pure_java = noClasses()
+    static final ArchRule domainMustBePureJava = noClasses()
             .that().resideInAPackage("com.pokedex.domain..")
             .should().dependOnClassesThat().resideInAnyPackage(
                     "org.springframework..", "jakarta.persistence..",
@@ -19,7 +19,7 @@ class ArchitectureTest {
             .allowEmptyShould(true);
 
     @ArchTest
-    static final ArchRule application_must_not_depend_on_frameworks_or_outer_layers = noClasses()
+    static final ArchRule applicationMustNotDependOnFrameworksOrOuterLayers = noClasses()
             .that().resideInAPackage("com.pokedex.application..")
             .should().dependOnClassesThat().resideInAnyPackage(
                     "org.springframework..", "jakarta.persistence..",
@@ -27,7 +27,7 @@ class ArchitectureTest {
             .allowEmptyShould(true);
 
     @ArchTest
-    static final ArchRule presentation_must_not_depend_on_infrastructure = noClasses()
+    static final ArchRule presentationMustNotDependOnInfrastructure = noClasses()
             .that().resideInAPackage("com.pokedex.presentation..")
             .should().dependOnClassesThat().resideInAPackage("com.pokedex.infrastructure..")
             .allowEmptyShould(true);
