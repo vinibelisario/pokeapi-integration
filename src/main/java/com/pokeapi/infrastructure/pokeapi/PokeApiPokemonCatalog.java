@@ -5,6 +5,7 @@ import com.pokeapi.application.port.out.PokemonCatalogGateway;
 import com.pokeapi.domain.model.Ability;
 import com.pokeapi.domain.model.Pokemon;
 import com.pokeapi.domain.model.PokemonPage;
+import com.pokeapi.infrastructure.config.CacheConfig;
 import com.pokeapi.infrastructure.pokeapi.PokeApiModels.AbilitySlot;
 import com.pokeapi.infrastructure.pokeapi.PokeApiModels.Genus;
 import com.pokeapi.infrastructure.pokeapi.PokeApiModels.ListResponse;
@@ -12,6 +13,7 @@ import com.pokeapi.infrastructure.pokeapi.PokeApiModels.NamedResource;
 import com.pokeapi.infrastructure.pokeapi.PokeApiModels.PokemonDetail;
 import com.pokeapi.infrastructure.pokeapi.PokeApiModels.SpeciesResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -30,6 +32,7 @@ public class PokeApiPokemonCatalog implements PokemonCatalogGateway {
     }
 
     @Override
+    @Cacheable(cacheNames = CacheConfig.POKEMON_PAGES, key = "#p0 + ':' + #p1")
     public PokemonPage fetchPage(int page, int size) {
         try {
             ListResponse list = restClient.get()

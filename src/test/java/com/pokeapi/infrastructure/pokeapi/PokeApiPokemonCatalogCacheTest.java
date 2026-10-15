@@ -2,9 +2,11 @@ package com.pokeapi.infrastructure.pokeapi;
 
 import com.pokeapi.application.exception.ExternalServiceException;
 import com.pokeapi.domain.model.PokemonPage;
+import com.pokeapi.infrastructure.config.CacheConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
@@ -89,10 +91,14 @@ class PokeApiPokemonCatalogCacheTest {
 
     @Autowired
     private MockRestServiceServer server;
+    @Autowired
+
+    private CacheManager cacheManager;
 
     @BeforeEach
-    void resetServer() {
+    void resetState() {
         server.reset();
+        cacheManager.getCache(CacheConfig.POKEMON_PAGES).clear();
     }
 
     @Test
