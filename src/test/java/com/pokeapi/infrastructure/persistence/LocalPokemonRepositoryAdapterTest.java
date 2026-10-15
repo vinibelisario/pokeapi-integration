@@ -56,6 +56,15 @@ class LocalPokemonRepositoryAdapterTest {
         assertThat(adapter.count()).isEqualTo(3);
     }
 
+    @Test
+    void deleteByIdRemovesTheRow() {
+        adapter.save(pokemon(1, "bulbasaur"));
+
+        adapter.deleteById(1);
+
+        assertThat(adapter.findById(1)).isEmpty();
+    }
+
     private static LocalPokemon pokemon(int id, String name) {
         return new LocalPokemon(id, name, null, null, null, null, List.of());
     }
