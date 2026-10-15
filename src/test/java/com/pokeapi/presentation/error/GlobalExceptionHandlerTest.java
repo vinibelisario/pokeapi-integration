@@ -1,8 +1,8 @@
-package com.pokedex.presentation.error;
+package com.pokeapi.presentation.error;
 
-import com.pokedex.application.exception.ExternalServiceException;
-import com.pokedex.domain.exception.InvalidDataException;
-import com.pokedex.domain.exception.ResourceNotFoundException;
+import com.pokeapi.application.exception.ExternalServiceException;
+import com.pokeapi.domain.exception.InvalidDataException;
+import com.pokeapi.domain.exception.ResourceNotFoundException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.junit.jupiter.api.BeforeEach;

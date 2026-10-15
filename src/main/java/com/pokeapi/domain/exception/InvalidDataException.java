@@ -1,4 +1,4 @@
-package com.pokedex.domain.exception;
+package com.pokeapi.domain.exception;
 
 public class InvalidDataException extends RuntimeException {
 

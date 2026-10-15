@@ -1,4 +1,4 @@
-package com.pokedex.application.exception;
+package com.pokeapi.application.exception;
 
 public class ExternalServiceException extends RuntimeException {
 
