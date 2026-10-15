@@ -1,9 +1,9 @@
-package com.pokedex.infrastructure.pokeapi;
+package com.pokeapi.infrastructure.pokeapi;
 
-import com.pokedex.application.exception.ExternalServiceException;
-import com.pokedex.domain.model.Ability;
-import com.pokedex.domain.model.Pokemon;
-import com.pokedex.domain.model.PokemonPage;
+import com.pokeapi.application.exception.ExternalServiceException;
+import com.pokeapi.domain.model.Ability;
+import com.pokeapi.domain.model.Pokemon;
+import com.pokeapi.domain.model.PokemonPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpMethod;
