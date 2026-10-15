@@ -1,8 +1,9 @@
-package com.pokeapi.presentation.error;
+package com.pokeapi.presentation;
 
 import com.pokeapi.application.exception.ExternalServiceException;
 import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.exception.ResourceNotFoundException;
+import com.pokeapi.presentation.error.GlobalExceptionHandler;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.junit.jupiter.api.BeforeEach;
