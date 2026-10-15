@@ -34,6 +34,9 @@ class PokemonControllerTest {
     @MockitoBean
     private PokemonCatalogGateway pokemonCatalogGateway;
 
+    @MockitoBean
+    private PokemonDetailGateway pokemonDetailGateway;
+
     @Test
     void listPokemonReturns200WithPageContent() throws Exception {
         Pokemon bulbasaur = new Pokemon(1, "bulbasaur", "https://img/1.png", "Seed Pokémon", 6.9,
