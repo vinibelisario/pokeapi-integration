@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.pokedex</groupId>
-    <artifactId>pokedex-api</artifactId>
+    <artifactId>pokeapi-integration</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <name>pokedex-api</name>
+    <name>pokeapi-integration</name>
     <description>RESTful Pokedex API on top of PokeAPI - Clean Architecture + TDD</description>
 
     <properties>
