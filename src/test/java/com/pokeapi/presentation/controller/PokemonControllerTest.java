@@ -3,6 +3,7 @@ package com.pokeapi.presentation.controller;
 import com.pokeapi.application.exception.ExternalServiceException;
 import com.pokeapi.application.port.in.ListPokemonUseCase;
 import com.pokeapi.application.port.out.PokemonCatalogGateway;
+import com.pokeapi.application.port.out.PokemonDetailGateway;
 import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.model.Ability;
 import com.pokeapi.domain.model.Pokemon;
