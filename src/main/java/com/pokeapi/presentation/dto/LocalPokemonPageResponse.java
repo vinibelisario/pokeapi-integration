@@ -4,22 +4,12 @@ import com.pokeapi.domain.model.LocalPokemonPage;
 
 import java.util.List;
 
-public record LocalPokemonPageResponse(
-        List<LocalPokemonResponse> content,
-        int page,
-        int size,
-        long totalElements,
-        int totalPages) {
+public record LocalPokemonPageResponse(List<LocalPokemonResponse> content, int page, int size,
+                                       long totalElements, int totalPages) {
 
     public static LocalPokemonPageResponse from(LocalPokemonPage page) {
-        List<LocalPokemonResponse> content = page.content().stream()
-                .map(LocalPokemonResponse::from)
-                .toList();
         return new LocalPokemonPageResponse(
-                content,
-                page.page(),
-                page.size(),
-                page.totalElements(),
-                page.totalPages());
+                page.content().stream().map(LocalPokemonResponse::from).toList(),
+                page.page(), page.size(), page.totalElements(), page.totalPages());
     }
 }

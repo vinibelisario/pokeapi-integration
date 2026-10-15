@@ -25,6 +25,11 @@ public class LocalPokemonRepositoryAdapter implements LocalPokemonRepository {
     }
 
     @Override
+    public void deleteById(int id) {
+        jpaRepository.deleteById(id);
+    }
+
+    @Override
     public LocalPokemon save(LocalPokemon pokemon) {
         return toDomain(jpaRepository.save(toEntity(pokemon)));
     }

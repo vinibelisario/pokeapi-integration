@@ -14,4 +14,6 @@ public interface LocalPokemonRepository {
     List<LocalPokemon> findPage(int page, int size);
 
     long count();
+
+    void deleteById(int id);
 }

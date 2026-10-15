@@ -7,10 +7,7 @@ import com.pokeapi.application.port.in.SyncPokemonUseCase;
 import com.pokeapi.application.port.out.LocalPokemonRepository;
 import com.pokeapi.application.port.out.PokemonCatalogGateway;
 import com.pokeapi.application.port.out.PokemonDetailGateway;
-import com.pokeapi.application.usecase.GetPokemonDetailService;
-import com.pokeapi.application.usecase.ListPokemonService;
-import com.pokeapi.application.usecase.QueryLocalPokemonService;
-import com.pokeapi.application.usecase.SyncPokemonService;
+import com.pokeapi.application.usecase.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -36,5 +33,10 @@ public class UseCaseConfig {
     @Bean
     public QueryLocalPokemonUseCase queryLocalPokemonUseCase(LocalPokemonRepository repository) {
         return new QueryLocalPokemonService(repository);
+    }
+
+    @Bean
+    public ManageLocalPokemonService manageLocalPokemonService(LocalPokemonRepository repository) {
+        return new ManageLocalPokemonService(repository);
     }
 }
