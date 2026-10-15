@@ -16,3 +16,6 @@ management:
 
 pokeapi:
   base-url: ${POKEAPI_BASE_URL:https://pokeapi.co/api/v2}
+  cache:
+    ttl-minutes: ${POKEAPI_CACHE_TTL_MINUTES:10}
+    max-size: ${POKEAPI_CACHE_MAX_SIZE:500}
