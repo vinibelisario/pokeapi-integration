@@ -1,4 +1,8 @@
 package com.pokeapi.application.port.out;
 
-public class PasswordHasher {
+public interface PasswordHasher {
+
+    String hash(String rawPassword);
+
+    boolean matches(String rawPassword, String hash);
 }

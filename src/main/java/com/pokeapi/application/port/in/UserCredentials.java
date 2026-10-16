@@ -1,4 +1,4 @@
 package com.pokeapi.application.port.in;
 
-public class UserCredentials {
+public record UserCredentials(String username, String password) {
 }

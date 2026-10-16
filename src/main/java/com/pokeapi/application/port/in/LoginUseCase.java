@@ -1,4 +1,6 @@
 package com.pokeapi.application.port.in;
 
-public class LoginUseCase {
+public interface LoginUseCase {
+
+    String login(UserCredentials credentials);
 }

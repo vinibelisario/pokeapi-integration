@@ -1,4 +1,8 @@
 package com.pokeapi.application.port.in;
 
-public class RegisterUserUseCase {
+import com.pokeapi.domain.model.User;
+
+public interface RegisterUserUseCase {
+
+    User register(UserCredentials credentials);
 }
