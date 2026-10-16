@@ -16,7 +16,7 @@ services:
       retries: 10
 
   app:
-    build: main/java
+    build: src/main/java
     depends_on:
       db:
         condition: service_healthy
