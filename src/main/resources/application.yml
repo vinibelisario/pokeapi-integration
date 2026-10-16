@@ -29,3 +29,7 @@ pokeapi:
   cache:
     ttl-minutes: ${POKEAPI_CACHE_TTL_MINUTES:10}
     max-size: ${POKEAPI_CACHE_MAX_SIZE:500}
+  security:
+    jwt:
+      secret: ${JWT_SECRET:dev-only-secret-change-me-to-a-long-random-value-of-32-bytes}
+      ttl: ${JWT_TTL:PT60M}
