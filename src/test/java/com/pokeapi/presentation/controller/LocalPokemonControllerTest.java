@@ -4,6 +4,7 @@ import com.pokeapi.application.port.in.DeleteLocalPokemonUseCase;
 import com.pokeapi.application.port.in.QueryLocalPokemonUseCase;
 import com.pokeapi.application.port.in.SyncPokemonUseCase;
 import com.pokeapi.application.port.in.UpdateLocalPokemonUseCase;
+import com.pokeapi.application.port.out.TokenGateway;
 import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.exception.ResourceNotFoundException;
 import com.pokeapi.domain.model.LocalPokemon;

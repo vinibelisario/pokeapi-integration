@@ -4,6 +4,7 @@ import com.pokeapi.application.port.in.GetPokemonDetailUseCase;
 import com.pokeapi.application.port.in.ListPokemonUseCase;
 import com.pokeapi.application.port.out.PokemonCatalogGateway;
 import com.pokeapi.application.port.out.PokemonDetailGateway;
+import com.pokeapi.application.port.out.TokenGateway;
 import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.exception.ResourceNotFoundException;
 import com.pokeapi.domain.model.EvolutionNode;
