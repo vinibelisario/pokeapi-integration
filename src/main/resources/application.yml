@@ -33,3 +33,6 @@ pokeapi:
     jwt:
       secret: ${JWT_SECRET:dev-only-secret-change-me-to-a-long-random-value-of-32-bytes}
       ttl: ${JWT_TTL:PT60M}
+  seed:
+    enabled: ${SEED_ENABLED:true}
+    demo-password: ${DEMO_PASSWORD:demo12345}
