@@ -1,6 +1,8 @@
 package com.pokeapi.presentation.error;
 
 import com.pokeapi.application.exception.ExternalServiceException;
+import com.pokeapi.domain.exception.ConflictException;
+import com.pokeapi.domain.exception.InvalidCredentialsException;
 import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.exception.ResourceNotFoundException;
 import jakarta.validation.ConstraintViolationException;
@@ -62,6 +64,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         log.error("Unexpected error", ex);
         return problem(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error",
                 "An unexpected error occurred");
+    }
+
+    @ExceptionHandler(ConflictException.class)
+    public ProblemDetail handleConflict(ConflictException ex) {
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+        detail.setTitle("Conflict");
+        detail.setProperty("timestamp", Instant.now());
+        return detail;
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ProblemDetail handleInvalidCredentials(InvalidCredentialsException ex) {
+        ProblemDetail detail = ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, ex.getMessage());
+        detail.setTitle("Invalid credentials");
+        detail.setProperty("timestamp", Instant.now());
+        return detail;
     }
 
     @Override
