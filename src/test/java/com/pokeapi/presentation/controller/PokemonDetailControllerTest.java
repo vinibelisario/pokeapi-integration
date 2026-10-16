@@ -10,7 +10,7 @@ import com.pokeapi.domain.exception.ResourceNotFoundException;
 import com.pokeapi.domain.model.EvolutionNode;
 import com.pokeapi.domain.model.PokemonDetail;
 import com.pokeapi.domain.model.Stat;
-import org.apache.catalina.security.SecurityConfig;
+import com.pokeapi.infrastructure.security.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -10,7 +10,7 @@ import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.model.Ability;
 import com.pokeapi.domain.model.Pokemon;
 import com.pokeapi.domain.model.PokemonPage;
-import org.apache.catalina.security.SecurityConfig;
+import com.pokeapi.infrastructure.security.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
