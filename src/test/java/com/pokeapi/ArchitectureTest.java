@@ -7,8 +7,9 @@ import com.tngtech.archunit.lang.ArchRule;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-@AnalyzeClasses(packages = "com.pokeapi", importOptions = ImportOption.DoNotIncludeTests.class)
-class ArchitectureTest {
+import com.tngtech.archunit.core.importer.ImportOption;
+
+@AnalyzeClasses(packages = "com.pokeapi", importOptions = ImportOption.DoNotIncludeTests.class)class ArchitectureTest {
 
     @ArchTest
     static final ArchRule domainMustBePureJava = noClasses()

@@ -8,10 +8,13 @@ import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.exception.ResourceNotFoundException;
 import com.pokeapi.domain.model.LocalPokemon;
 import com.pokeapi.domain.model.LocalPokemonPage;
+import org.apache.catalina.security.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -30,6 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(LocalPokemonController.class)
+@Import(SecurityConfig.class)
+@WithMockUser
 class LocalPokemonControllerTest {
 
     private static final LocalPokemon BULBASAUR = new LocalPokemon(
@@ -38,6 +43,9 @@ class LocalPokemonControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockitoBean
+    private TokenGateway tokenGateway;
 
     @MockitoBean
     private SyncPokemonUseCase syncPokemonUseCase;

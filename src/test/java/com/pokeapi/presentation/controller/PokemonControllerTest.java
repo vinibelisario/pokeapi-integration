@@ -9,9 +9,11 @@ import com.pokeapi.domain.exception.InvalidDataException;
 import com.pokeapi.domain.model.Ability;
 import com.pokeapi.domain.model.Pokemon;
 import com.pokeapi.domain.model.PokemonPage;
+import org.apache.catalina.security.SecurityConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -25,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(PokemonController.class)
+@Import(SecurityConfig.class)
 class PokemonControllerTest {
 
     @Autowired
@@ -41,6 +44,9 @@ class PokemonControllerTest {
 
     @MockitoBean
     private GetPokemonDetailUseCase getPokemonDetailUseCase;
+
+    @MockitoBean
+    private TokenGateway tokenGateway;
 
     @Test
     void listPokemonReturns200WithPageContent() throws Exception {
